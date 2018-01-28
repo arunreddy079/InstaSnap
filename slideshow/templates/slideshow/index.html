@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Insta Slideshow</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+<link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+        <div class="jumbotron hello">
+            <h1 class="text-center">Insta Slideshow</h1>
+        </div>
+    <div class="row" align="center">
+            <div id="myCarousel">
+                {% for i in stuff %}
+                <div class="image-viewer-base-image" style="background: url({{ i }});"></div>
+                {% endfor %}
+            </div>
+    </div>
+
+<script>
+  YUI().use(
+  'aui-carousel',
+  function(Y) {
+    new Y.Carousel(
+      {
+        contentBox: '#myCarousel',
+        height: 500,
+        width: 1000,
+      }
+    ).render();
+  }
+);
+</script>
+
+</body>
+</html>
